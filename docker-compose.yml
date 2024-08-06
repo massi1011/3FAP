@@ -1,0 +1,22 @@
+version: '3.9'  # Utilise une version plus récente de la spécification
+
+services:
+  web:
+    image: monapp:latest
+    ports:
+      - "8080:80"
+    environment:
+      DB_HOST: db
+      DB_USER: root
+      DB_PASSWORD: ""
+      DB_NAME: site_zero_dechet
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: ""
+      MYSQL_DATABASE: site_zero_dechet
+    ports:
+      - "3306:3306"

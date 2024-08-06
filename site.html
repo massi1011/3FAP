@@ -1,0 +1,217 @@
+<html>
+    <head>
+        <title>Eco Services</title>
+        <meta charset="utf-8">
+        <style>
+
+            h1{
+                font-size: 80px;
+                text-align: center;
+                color: #fff;
+                display:inline;
+                text-decoration: none;
+            }
+            h2{
+                color: #6ac566;
+                font-size: 30px;
+            }
+            h3{
+                color: #fff;
+                font-size: 25px;
+                text-decoration: underline;
+            }
+            p{
+                font-size: 20px;
+                color: #fff;
+            }
+           
+            input{
+                height: 30px;
+                width: auto;
+                border-radius: 5px;
+                border: 2px solid #248607;
+                outline: 0;
+                transition: all 0.2s ease-in-out;
+                padding-left: 10px;
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+            label{
+                color: #fff;
+                font-size: 20px;
+                
+            }
+            .submit_btn{
+                color: #fff;
+                text-decoration: none;
+                padding: 5px 20px;
+                background: #248607;
+                transition: all 0.3 ease-in-out;
+                font-weight: 500;
+                
+            }
+            .submit_btn:hover{
+                color: #248607;
+                background: transparent;
+                cursor: pointer;
+            }
+
+            .title_site{
+                color: #fff ;
+                font-size: 45px;
+                font-family: 'Pacifico', cursive;
+             }
+            .btn{
+                color: #fff;
+                text-decoration: none;
+                padding: 5px 20px;
+                background: #248607;
+                border-radius: 4px;
+                font-size: large;
+                border: 2px solid #248607;
+                font-weight: 500;
+                transition: all 0.3 ease-in-out;
+                
+                
+            }
+            .btn:hover{
+                color: #248607;
+                background: transparent;
+                cursor: pointer;
+            }
+
+            html, body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            
+        
+                body {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                   
+                }
+                .full-page-image {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 400dvh;
+                    object-fit: cover; /* Pour s'assurer que l'image couvre bien toute la zone */
+                    z-index: -1; /* Optionnel, pour s'assurer que l'image est en arrière-plan */
+                }
+                h1 span {
+                    display: inline-block;
+                    animation: animate 1s linear forwards;
+                }
+                @keyframes animate{
+                    0%{
+                        opacity: 0;
+                        transform: rotateY(90deg);
+                        filter: blur(10px);
+                    }
+                   
+                    100%{
+                        opacity: 1;
+                        transform: rotateY(0deg);
+                        filter: blur(0);
+                    }
+                }
+            
+            .container {
+                width: 80%;
+                margin: auto; 
+                position: relative;
+                z-index: 999;
+                align-items: center;
+                text-align: center;
+            }
+            .liste{
+                color: #fff;
+            }
+            .lien{
+                color: #fff;
+                font-size: 25px;
+            }
+            .lien:hover{
+                cursor: pointer;
+                font-size: larger;
+
+            }
+            .produit img {
+                max-width: 100px;  /* Réduit la largeur maximale de l'image à la largeur de son conteneur */
+                height: 100px;     
+                display: block;  
+                margin: 0 auto;   
+            }
+            
+            .prd{
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body > 
+        <img src="https://yesofcorsa.com/wp-content/uploads/2020/04/Recycle-Wallpaper-1080p.jpg" alt="Image pleine page" class="full-page-image">
+        <div class="container"><br><br><br><br><br>
+            <h1 >
+                <span>Eco Systemes</span> 
+            </h1><br>
+
+            <header>
+                <nav>
+                    <ul>
+                        <li><a href="#particuliers" class="lien" >&#8594; Pour Particuliers</a></li>
+                        <li><a href="#professionnels" class="lien" >&#8594; Pour Professionnels</a></li>
+                    </ul>
+                </nav>
+            </header>
+        
+            <section id="particuliers">
+                <h2>Pour Particuliers</h2>
+                <h2>>Zéro Déchet, c'est quoi ?</h2>
+                <p>Une démarche écologique qui vise à changer vos habitudes de consommation afin de réduire votre production de déchets. L’objectif est d’arriver à ne plus en jeter du tout d’ordures, où du moins, en très petite quantité.</p>
+                
+                <h2>Produits écoresponsables</h2>
+                <p>Un produit durable et éco-responsable permet une réduction maximale de son impact sur l'environnement, decouvrez nos produits sur ce site !</p>
+                
+                <h3>Catalogue des Produits:</h3>
+                <div id="catalogue-produits" class="prd"></div>
+                
+                <h3>Panier</h3>
+                <div id="panier"></div>
+                <button onclick="validerPanier()" class="btn">Valider le Panier</button>
+            </section>
+        
+            <section id="professionnels">
+                <h2>Pour Professionnels</h2>
+                <h2>Nos Services</h2>
+                <div id="catalogue-services"></div>
+                
+                <h3>Demande de Devis</h3>
+                <form id="demande-devis">
+                    <label for="nom">Nom:</label>
+                    <input type="text" id="nom" name="nom" required>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    
+                    <label for="service">Service:</label>
+                    <select id="service" name="service">
+                        <!-- Options générées dynamiquement -->
+                    </select>
+                    
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description"></textarea>
+                    
+                    <button type="submit" class="btn">Envoyer</button>
+                </form>
+            </section>
+        
+            <script src="script.js"></script>
+
+        </div>
+    </body>
+
+</html>
